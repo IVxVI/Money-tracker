@@ -25,7 +25,7 @@ export const Info: React.FC<Props> = ({
 }) => {
   const [shownAmounts, setShownAmounts] = useState(false);
   const handleVisibility = () => {
-    setShownAmounts(!shownAmounts)
+    setShownAmounts(prevState => !prevState);
   }
 
   return (
@@ -86,7 +86,7 @@ export const Info: React.FC<Props> = ({
 
       <div className={
         classNames( 'info__block', 'info__block-amounts',
-          {'is-hidden': shownAmounts}
+          {'is-hidden': !shownAmounts}
         )
       }>
         <h2
