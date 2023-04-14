@@ -46,7 +46,7 @@ export const PaginationMain: React.FC<Props> = ({ collection, handleExpencesRemo
   };
 
   return (
-    <div className="container">
+    <>
       <Body
         collection={visibleItems}
         onExpencesDelete={handleExpencesRemoval}
@@ -61,7 +61,7 @@ export const PaginationMain: React.FC<Props> = ({ collection, handleExpencesRemo
           onPageChange={handlePageChange}
         />
 
-        <p className="pagination__desctiprion">
+        <p className="pagination__description">
           {collection.length > 1
           ? `Page ${currentPage} (items ${firstInRow} - ${lastInRow} of ${totalItems})`
         : `Page ${currentPage} (item 1)`}
@@ -84,6 +84,6 @@ export const PaginationMain: React.FC<Props> = ({ collection, handleExpencesRemo
           </label>
         </div>
       </div>
-    </div>
+    </>
   );
 };

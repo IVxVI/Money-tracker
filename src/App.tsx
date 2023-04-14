@@ -17,9 +17,12 @@ function App() {
   const userAmount = 35000;
   const [itemTitle, setItemTitle] = useState('');
   const [mainAmount, setMainAmount] = useLocalStorage('itemAmount', userAmount);
+  const [expencesStorage, setExpencesStorage] = useLocalStorage('expencesStorage', 0);
+  const [incomesStorage, setIncomesStorage] = useLocalStorage('incomesStorage', 0);
   const [itemAmount, setItemAmount] = useState('');
   const [collection, setCollection] = useLocalStorage('initialCollection', []);
   const [isEditing, setIsEditing] = useState(false);
+  const [filterType, setFilterType] = useState(FilterType.All);
 
   const handleExpences = (event: React.FormEvent) => {
     event.preventDefault();
@@ -30,7 +33,7 @@ function App() {
 
     const newExpence = createExpence(itemTitle, +itemAmount, mainAmount);
     setMainAmount(mainAmount - newExpence.amount);
-
+    setExpencesStorage(expencesStorage + newExpence.amount);
     newExpence.createdAt = new Date().toLocaleString();
     setCollection([...collection, newExpence])
     setItemTitle('');
@@ -46,6 +49,7 @@ function App() {
 
     const newIncome = createIncome(itemTitle, +itemAmount);
     setMainAmount(mainAmount + newIncome.amount);
+    setIncomesStorage(incomesStorage + newIncome.amount);
 
     newIncome.createdAt = new Date().toLocaleString();
     setCollection([...collection, newIncome])
@@ -73,7 +77,8 @@ function App() {
   }
 
   const handleReset = () => {
-    setMainAmount(0)
+    setMainAmount(0);
+    setCollection([]);
   }
 
   const handleEdit = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -81,8 +86,6 @@ function App() {
       setIsEditing(!isEditing);
     }
   }
-
-  const [filterType, setFilterType] = useState(FilterType.All);
 
   const filteredItems = useMemo(() => {
     switch (filterType) {
@@ -99,17 +102,23 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <div className="App__header">
+        <Header />
+      </div>
 
       <div className="App__main">
-        <Info 
-          isEditing={isEditing}
-          setIsEditing={setIsEditing}
-          mainAmount={mainAmount}
-          handleEdit={handleEdit}
-          setMainAmount={setMainAmount}
-          userAmount={userAmount}
-        />
+        <div className="App__main-block">
+          <Info
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
+            mainAmount={mainAmount}
+            handleEdit={handleEdit}
+            setMainAmount={setMainAmount}
+            userAmount={userAmount}
+            incomesStorage={incomesStorage}
+            expencesStorage={expencesStorage}
+          />
+        </div>
 
         <div className="App__main-block">
           <Form
@@ -123,21 +132,23 @@ function App() {
         </div>
       </div>
 
+      {collection.length > 0 && (
+        <div className="box">
+          <PaginationMain
+            collection={filteredItems}
+            handleExpencesRemoval={handleExpencesRemoval}
+            handleIncomesRemoval={handleIncomesRemoval}
+          />
+
+          <Footer 
+            handleReset={handleReset}
+            filterType={filterType}
+            setFilterType={setFilterType}
+          />
+        </div>
+      )}
+
       
-
-      <div className="box">
-        <PaginationMain
-          collection={filteredItems}
-          handleExpencesRemoval={handleExpencesRemoval}
-          handleIncomesRemoval={handleIncomesRemoval}
-        />
-      </div>
-
-      <Footer 
-        handleReset={handleReset}
-        filterType={filterType}
-        setFilterType={setFilterType}
-      />
     </div>
   )
 }

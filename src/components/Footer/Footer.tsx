@@ -17,26 +17,26 @@ export const Footer: React.FC<Props> = ({ handleReset, setFilterType }) => {
           className="button"
           onClick={handleReset}
         >
-          Reset
+          <span>Reset</span>
         </button>
         <button
           className="button"
           onClick={() => setFilterType(FilterType.Incomes)}
         >
-          Show only incomes
+          <span>Show incomes</span>
         </button>
         <button
           className="button"
           onClick={() => setFilterType(FilterType.Expences)}
         >
-          Show only expences
+          <span>Show expences</span>
         </button>
         
         <button
           className="button"
           onClick={() => setFilterType(FilterType.All)}
         >
-          Show all
+          <span>Show all</span>
         </button>
       </div>
     </footer>

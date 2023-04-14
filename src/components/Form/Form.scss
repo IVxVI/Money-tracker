@@ -1,7 +1,13 @@
+@import '/src/styles/_mixins.scss';
+
 .form {
   &__input {
-    width: 200px !important;
+    width: 100px !important;
     font-family: 'Roboto Mono', monospace;
+
+    @include onTablet {
+      width: 200px !important;
+    }
   }
 }
 

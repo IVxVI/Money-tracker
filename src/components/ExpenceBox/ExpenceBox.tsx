@@ -18,11 +18,22 @@ export const ExpenceBox: React.FC<Props> = ({ item, onExpencesDelete, onIncomesD
       <div className="item item__expences">
         <h2 className="item__subheader item__subheader--expences">{item.category}</h2>
         <div className="">
-          <div className="item__header">Title: {item.title}</div>
+          <div className="item__header">Title: </div>
+          {item.title}
         </div>
         <div className="item__content">
-          <div className="item__content--date">Created at: {item.createdAt}</div>
-          <div className="item__content--amount">{item.amount} / {item.max}</div>
+          <div className="item__content--date">
+            <div className="item__header">
+              Created at: 
+            </div>
+            {item.createdAt}
+          </div>
+          <div className="item__content--amount">
+            <div className="item__header">
+              Amount:
+            </div> 
+            {item.amount} / {item.max}
+          </div>
         </div>
         <footer className="item__footer">
           <button className="button">Edit</button>
@@ -33,11 +44,20 @@ export const ExpenceBox: React.FC<Props> = ({ item, onExpencesDelete, onIncomesD
       <div className="item item__incomes">
         <h2 className="item__subheader item__subheader--incomes">{item.category}</h2>
         <div className="">
-          <div className="item__header">Title: {item.title}</div>
+          <div className="item__header">Title: </div>
+          {item.title}
         </div>
         <div className="item__content">
-          <div className="item__content--date">Created at: {item.createdAt}</div>
-          <div className="item__content--amount">{item.amount}</div>
+          <div className="item__content--date">
+            <div className="item__header">Created at: </div>
+              {item.createdAt}
+            </div>
+          <div className="item__content--amount">
+            <div className="item__header">
+              Amount: 
+            </div>
+              {item.amount}
+          </div>
         </div>
         <footer className="item__footer">
           <button className="button">Edit</button>

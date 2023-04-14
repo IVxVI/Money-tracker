@@ -1,15 +1,12 @@
+@import './_mixins.scss';
+
 .button {
-  min-width: 100px;
+  display: block;
   background-color: #FFFFFF;
   border: 1px solid rgb(209,213,219);
   border-radius: .5rem;
   box-sizing: border-box;
   color: #111827;
-  font-family: inherit;
-  font-size: .875rem;
-  font-weight: 600;
-  line-height: 1.25rem;
-  padding: .75rem 1rem;
   text-align: center;
   text-decoration: none #D1D5DB solid;
   text-decoration-thickness: auto;
@@ -18,6 +15,19 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 1.25rem;
+  font-size: 12px !important;
+  width: 120px;
+
+  word-break: break-word;
+
+  @include onTablet {
+    font-size: 15px !important;
+    width: 140px;
+  }
+
   
   &:hover {
     background-color: rgb(249,250,251);
