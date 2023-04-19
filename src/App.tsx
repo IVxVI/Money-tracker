@@ -14,21 +14,16 @@ import './styles/App.scss';
 import { UserAmountModal } from './components/UserAmountModal/UserAmountModal';
 
 function App() {
-  const [isSubmited, setIsSubmited] = useState(false);
-  const [userAmount, setUserAmount] = useState(+'');
-  const [itemTitle, setItemTitle] = useState('');
+  const [userAmount, setUserAmount] = useLocalStorage('userAmount', 0);
+  const [isSubmited, setIsSubmited] = useLocalStorage('isSubmited', false);
   const [mainAmount, setMainAmount] = useLocalStorage('itemAmount', userAmount);
   const [expencesStorage, setExpencesStorage] = useLocalStorage('expencesStorage', 0);
   const [incomesStorage, setIncomesStorage] = useLocalStorage('incomesStorage', 0);
-  const [itemAmount, setItemAmount] = useState('');
   const [collection, setCollection] = useLocalStorage('initialCollection', []);
+  const [itemTitle, setItemTitle] = useState('');
+  const [itemAmount, setItemAmount] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [filterType, setFilterType] = useState(FilterType.All);
-
-  const onSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    setIsSubmited(true);
-  }
 
   const handleExpences = (event: React.FormEvent) => {
     event.preventDefault();
@@ -109,8 +104,8 @@ function App() {
   if(!isSubmited) {
     return (
       <UserAmountModal 
-        setUserAmount={setUserAmount} 
-        onSubmit={onSubmit}
+        setUserAmount={setUserAmount}
+        setIsSubmited={setIsSubmited}
       />
     )
   }

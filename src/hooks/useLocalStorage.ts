@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ExpenceItem } from "../types/ExpenceItem";
 
-export const useLocalStorage = (key: string, initialValue: ExpenceItem[] | number) => {
+export const useLocalStorage = (key: string, initialValue: ExpenceItem[] | number | boolean) => {
   const [value, setValue] = useState(() => {
     try {
       const data = localStorage.getItem(key);

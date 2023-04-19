@@ -3,15 +3,21 @@ import '../../styles/button.scss';
 
 type Props = {
   setUserAmount: (value: React.SetStateAction<number>) => void,
-  onSubmit: (event: React.FormEvent) => void,
+  setIsSubmited: (value: React.SetStateAction<boolean>) => void,
 }
 
-export const UserAmountModal: React.FC<Props> = ({ setUserAmount, onSubmit }) => {
+export const UserAmountModal: React.FC<Props> = ({ setUserAmount, setIsSubmited }) => {
+  const handleSubmit = (event: any) => {
+    const value = +event.currentTarget.elements.userInput.value;
+    setUserAmount(value);    
+    setIsSubmited(true);
+  }
+
   return (
     <div className="userform__wrapper">
       <form
         className="userform"
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit}
       >
         <label
           htmlFor="userInput"
