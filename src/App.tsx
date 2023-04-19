@@ -10,11 +10,12 @@ import { IncomeItem } from './types/IncomeItem';
 import { Info } from './components/Info/Info';
 import { PaginationMain } from './components/Pagination/PaginationMain';
 import { FilterType } from './types/FilterType';
-import 'bulma/bulma.sass';
 import './styles/App.scss';
+import { UserAmountModal } from './components/UserAmountModal/UserAmountModal';
 
 function App() {
-  const userAmount = 35000;
+  const [isSubmited, setIsSubmited] = useState(false);
+  const [userAmount, setUserAmount] = useState(+'');
   const [itemTitle, setItemTitle] = useState('');
   const [mainAmount, setMainAmount] = useLocalStorage('itemAmount', userAmount);
   const [expencesStorage, setExpencesStorage] = useLocalStorage('expencesStorage', 0);
@@ -23,6 +24,11 @@ function App() {
   const [collection, setCollection] = useLocalStorage('initialCollection', []);
   const [isEditing, setIsEditing] = useState(false);
   const [filterType, setFilterType] = useState(FilterType.All);
+
+  const onSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    setIsSubmited(true);
+  }
 
   const handleExpences = (event: React.FormEvent) => {
     event.preventDefault();
@@ -100,6 +106,15 @@ function App() {
     }
   }, [collection, filterType]);
 
+  if(!isSubmited) {
+    return (
+      <UserAmountModal 
+        setUserAmount={setUserAmount} 
+        onSubmit={onSubmit}
+      />
+    )
+  }
+
   return (
     <div className="App">
       <div className="App__header">
@@ -147,8 +162,6 @@ function App() {
           />
         </div>
       )}
-
-      
     </div>
   )
 }

@@ -1,18 +1,14 @@
 @import '/src/styles/_mixins.scss';
 
-.footer {
-  background-color: #ffff !important;
-  border-bottom: 2px solid hsl(0, 0%, 21%);
-  width: 100%;
-  
-  &__buttons {
-    display: grid;
-    place-items: center;
-    grid-template-columns: repeat(1, 4fr);
-    grid-row-gap: 10px;
+.footer__buttons {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(1, 4fr);
+  grid-row-gap: 10px;
 
-    @include onTablet {
-      grid-template-columns: repeat(4, 1fr);
-    }
+  width: 100%;
+
+  @include onTablet {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

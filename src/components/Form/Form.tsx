@@ -23,7 +23,7 @@ export const Form: React.FC<Props> = ({
     <form
       className="form"
     >
-      <div className="field">
+      <div className="form__field">
         <label
           className="label"
           htmlFor="title-input"
@@ -31,14 +31,14 @@ export const Form: React.FC<Props> = ({
           Add title here
         </label>
         <input
-          className="form__input input"
+          className="form__input"
           type="text"
           id="title-input"
           value={itemTitle}
           onChange={(event) => setItemTitle(event.target.value)}
         />
       </div>
-      <div className="field">
+      <div className="form__field">
         <label
           htmlFor="amount-input"
           className='label'
@@ -46,15 +46,15 @@ export const Form: React.FC<Props> = ({
           Add amount here
         </label>
         <input
-          className='form__input input'
+          className='form__input'
           type="number"
           id="amount-input"
           value={itemAmount}
           onChange={(event) => setItemAmount(event.target.value)}
         />
       </div>
-      <div className="wrapper">
-        <div className="field">
+      <div className="form__field-buttons">
+        <div className="button-wrapper">
           <button
             className="button"
             onClick={handleExpences}
@@ -62,7 +62,8 @@ export const Form: React.FC<Props> = ({
             Add expence
           </button>
         </div>
-        <div className="field">
+
+        <div className="button-wrapper">
           <button
             className="button"
             onClick={handleIncomes}

@@ -1,0 +1,49 @@
+@import '../../styles/_mixins.scss';
+
+.userform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-family: 'Roboto Mono', monospace;
+
+  &__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 16px;
+
+    @include onTablet {
+      font-weight: 900;
+      font-size: 24px;
+    }
+  }
+
+  &__input {
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+    min-width: 100px;
+    max-width: 300px;
+    font-size: inherit;
+    text-align: center;
+    font-weight: 700;
+    color: inherit;
+
+    outline: none;
+    border: none;
+
+    border-bottom: 2px solid hsl(0, 0%, 21%);
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}

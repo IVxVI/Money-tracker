@@ -1,19 +1,42 @@
 @import '/src/styles/_mixins.scss';
 
 .form {
-  &__input {
-    width: 100px !important;
-    font-family: 'Roboto Mono', monospace;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
-    @include onTablet {
-      width: 200px !important;
+  &__field {
+    display: flex;
+    flex-direction: column;
+
+    &-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
     }
   }
-}
 
-.wrapper {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  &__input {
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+    font-size: inherit;
+    text-align: center;
+    font-weight: 700;
+    color: inherit;
+    background-color: transparent;
+    width: 300px;
+    align-self: center;
+
+    outline: none;
+    border: none;
+    border-bottom: 2px solid hsl(0, 0%, 21%);
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
 }

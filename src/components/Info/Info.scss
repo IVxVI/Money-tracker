@@ -1,4 +1,8 @@
 .info {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
   &__header {
     font-size: 24px;
     font-weight: 700;
@@ -6,10 +10,13 @@
   }
 
   &__block {
-  
     &-amounts {
       position: absolute;
       background-color: inherit;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-direction: column;
     }
   }
 
@@ -22,6 +29,7 @@
     text-align: center;
     font-weight: 700;
     color: inherit;
+    background-color: transparent;
 
     outline: none;
     border: none;
@@ -46,3 +54,4 @@
     }
   }
 }
+

@@ -2,11 +2,10 @@
 
 .button {
   display: block;
-  background-color: #FFFFFF;
-  border: 1px solid rgb(209,213,219);
+  background-color: #C9D6DF !important;
   border-radius: .5rem;
   box-sizing: border-box;
-  color: #111827;
+  color: #1E2022 !important;
   text-align: center;
   text-decoration: none #D1D5DB solid;
   text-decoration-thickness: auto;
@@ -20,25 +19,21 @@
   line-height: 1.25rem;
   font-size: 12px !important;
   width: 120px;
-
   word-break: break-word;
+
+  transition: transform 0.1s;
 
   @include onTablet {
     font-size: 15px !important;
     width: 140px;
   }
+  
+  &:active {
+    transform: scale(0.9);
+  }
 
-  
-  &:hover {
-    background-color: rgb(249,250,251);
-  }
-  
   &:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-  
-  &:focus-visible {
-    box-shadow: none;
+    box-shadow: none !important;
+    border-color: transparent !important;
   }
 }

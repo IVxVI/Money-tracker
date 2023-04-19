@@ -11,34 +11,32 @@ type Props = {
 
 export const Footer: React.FC<Props> = ({ handleReset, setFilterType }) => {
   return (
-    <footer className="footer">
-      <div className="footer__buttons">
-        <button
-          className="button"
-          onClick={handleReset}
-        >
-          <span>Reset</span>
-        </button>
-        <button
-          className="button"
-          onClick={() => setFilterType(FilterType.Incomes)}
-        >
-          <span>Show incomes</span>
-        </button>
-        <button
-          className="button"
-          onClick={() => setFilterType(FilterType.Expences)}
-        >
-          <span>Show expences</span>
-        </button>
-        
-        <button
-          className="button"
-          onClick={() => setFilterType(FilterType.All)}
-        >
-          <span>Show all</span>
-        </button>
-      </div>
+    <footer className="footer__buttons">
+      <button
+        className="button"
+        onClick={handleReset}
+      >
+        <span>Reset</span>
+      </button>
+      <button
+        className="button"
+        onClick={() => setFilterType(FilterType.Incomes)}
+      >
+        <span>Show incomes</span>
+      </button>
+      <button
+        className="button"
+        onClick={() => setFilterType(FilterType.Expences)}
+      >
+        <span>Show expences</span>
+      </button>
+      
+      <button
+        className="button"
+        onClick={() => setFilterType(FilterType.All)}
+      >
+        <span>Show all</span>
+      </button>
     </footer>
   )
 }
