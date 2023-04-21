@@ -11,6 +11,8 @@ type Props = {
   setMainAmount: (value: React.SetStateAction<string>) => void,
   incomesStorage: number,
   expencesStorage: number,
+  setIncomesStorage: (value: React.SetStateAction<number>) => void,
+  setExpencesStorage: (value: React.SetStateAction<number>) => void,
 }
 
 export const Info: React.FC<Props> = ({
@@ -22,10 +24,17 @@ export const Info: React.FC<Props> = ({
   setMainAmount,
   incomesStorage,
   expencesStorage,
+  setIncomesStorage,
+  setExpencesStorage,
 }) => {
   const [shownAmounts, setShownAmounts] = useState(false);
   const handleVisibility = () => {
     setShownAmounts(prevState => !prevState);
+  }
+
+  const clearAmounts = () => {
+    setIncomesStorage(0);
+    setExpencesStorage(0);
   }
 
   return (
@@ -111,6 +120,13 @@ export const Info: React.FC<Props> = ({
               onClick={handleVisibility}
             >
               Hide amounts
+            </button>
+
+            <button
+              className="button"
+              onClick={clearAmounts}
+            >
+              Clear amounts
             </button>
           </div>
         </div>

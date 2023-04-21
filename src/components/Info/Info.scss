@@ -1,7 +1,10 @@
+@import '../../styles/_variables';
+
 .info {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  color: $f-main;
 
   &__header {
     font-size: 24px;
@@ -52,5 +55,12 @@
       width: inherit;
     }
   }
+}
+
+.amounts__wrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 

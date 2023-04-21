@@ -1,11 +1,12 @@
 @import './_mixins.scss';
+@import './_variables';
 
 .button {
   display: block;
   background-color: #C9D6DF !important;
   border-radius: .5rem;
   box-sizing: border-box;
-  color: #1E2022 !important;
+  color: $f-main !important;
   text-align: center;
   text-decoration: none #D1D5DB solid;
   text-decoration-thickness: auto;

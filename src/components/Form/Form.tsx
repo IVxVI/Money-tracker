@@ -25,7 +25,7 @@ export const Form: React.FC<Props> = ({
     >
       <div className="form__field">
         <label
-          className="label"
+          className="form__label label"
           htmlFor="title-input"
         >
           Add title here
@@ -41,7 +41,7 @@ export const Form: React.FC<Props> = ({
       <div className="form__field">
         <label
           htmlFor="amount-input"
-          className='label'
+          className='form__label label'
         >
           Add amount here
         </label>

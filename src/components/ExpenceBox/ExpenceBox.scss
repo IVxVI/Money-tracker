@@ -1,6 +1,8 @@
 @import '../../styles/mixins';
+@import '../../styles/variables';
 
 .item {
+  color: $f-main;
   max-width: 300px;
   min-width: 130px;
   transition: transform 0.2s ease-in-out; 
@@ -37,12 +39,12 @@
     font-weight: 900;
 
     &-expences {
-      color: #cc0f35;
+      color: $f-main;
       font-weight: 700;
     }
 
     &-incomes {
-      color: #257953;
+      color: $f-main;
       font-weight: 700;
     }
   }
@@ -57,7 +59,7 @@
       background-color: #FFA8A8;
       border: 1px solid #FF8080;
       border-radius: 4px;
-      color: #cc0f35;
+      color: $f-main;
       font-weight: 700;
     }
 
@@ -66,7 +68,7 @@
       background-color: #B6FFCE;
       border: 1px solid #97DBAE;
       border-radius: 4px;
-      color: #257953;
+      color: $f-main;
       font-weight: 700;
     }
   }

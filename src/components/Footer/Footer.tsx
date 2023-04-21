@@ -37,6 +37,13 @@ export const Footer: React.FC<Props> = ({ handleReset, setFilterType }) => {
       >
         <span>Show all</span>
       </button>
+
+      <button
+        className="button"
+        onClick={() => localStorage.clear()}
+      >
+        <span>Clear memory</span>
+      </button>
     </footer>
   )
 }

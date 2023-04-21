@@ -1,8 +1,27 @@
+@import '../../styles/variables';
+
 .header {
   padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   &__title {
     font-size: 48px;
     font-weight: 700;
+
+    &--f {
+      color: $f-main;
+    }
+
+    &--s {
+      color: #C9D6DF;
+    }
   }
 }

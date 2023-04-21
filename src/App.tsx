@@ -10,8 +10,8 @@ import { IncomeItem } from './types/IncomeItem';
 import { Info } from './components/Info/Info';
 import { PaginationMain } from './components/Pagination/PaginationMain';
 import { FilterType } from './types/FilterType';
-import './styles/App.scss';
 import { UserAmountModal } from './components/UserAmountModal/UserAmountModal';
+import './styles/App.scss';
 
 function App() {
   const [userAmount, setUserAmount] = useLocalStorage('userAmount', 0);
@@ -68,11 +68,6 @@ function App() {
   const handleIncomesRemoval = (id: number) => {
     setCollection(collection.filter((incomeItem: IncomeItem) => {
       setMainAmount(mainAmount - incomeItem.amount);
-
-      if(mainAmount < incomeItem.amount) {
-        setMainAmount(0);
-      }
-
       return incomeItem.id !== id;
     }));
   }
@@ -126,6 +121,8 @@ function App() {
             setMainAmount={setMainAmount}
             userAmount={userAmount}
             incomesStorage={incomesStorage}
+            setExpencesStorage={setExpencesStorage}
+            setIncomesStorage={setIncomesStorage}
             expencesStorage={expencesStorage}
           />
         </div>
