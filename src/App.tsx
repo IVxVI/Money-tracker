@@ -11,7 +11,7 @@ import { Info } from './components/Info/Info';
 import { PaginationMain } from './components/Pagination/PaginationMain';
 import { FilterType } from './types/FilterType';
 import { UserAmountModal } from './components/UserAmountModal/UserAmountModal';
-import './styles/app.scss';
+import './styles/App.scss';
 
 function App() {
   const [userAmount, setUserAmount] = useLocalStorage('userAmount', 0);
