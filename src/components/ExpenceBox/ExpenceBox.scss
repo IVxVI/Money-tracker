@@ -1,86 +1,97 @@
 @import '../../styles/mixins';
-@import '../../styles/variables';
+@import '../../styles/_variables';
 
-.item {
-  color: $f-main;
-  max-width: 300px;
-  min-width: 130px;
-  transition: transform 0.2s ease-in-out; 
-  border-bottom: 2px solid rgb(209,213,219);
-  border-top: 2px solid rgb(209,213,219);
+.card {
+  padding: $pad-c;
+  background-color: #fff;
+  box-shadow: $shadow-main;
+  min-width: 220px;
+  max-width: 320px;
+  border-radius: 10px;
+}
 
-  background-color: inherit;
-
+.title {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
-  padding: 15px;
 
-  @include onTablet {
-    border: 1px solid rgb(209,213,219);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 
-  &__incomes {
-    border-radius: 4px;
+  &__text {
+    margin-left: 0.5rem;
+    color: $f-main;
+    font-size: 18px;
   }
 
-  &__expences {
-    border-radius: 4px;
-  }
-
-  &:hover {
-    transform: translateY(-10px);
-    position: relative;
-    overflow: hidden;
-  }
-
-  &__header {
-    font-weight: 900;
-
-    &-expences {
-      color: $f-main;
-      font-weight: 700;
+  &__arrow {
+    margin-left: 0.5rem;
+    font-weight: 600;
+    display: flex;
+  
+    &--incomes {
+      color: $c-income;
     }
-
-    &-incomes {
-      color: $f-main;
-      font-weight: 700;
-    }
-  }
-
-  &__subheader {
-    align-self: flex-start;
-    text-transform: uppercase;
-    font-weight: 700;
-
+  
     &--expences {
-      padding: 5px;
-      background-color: #FFA8A8;
-      border: 1px solid #FF8080;
-      border-radius: 4px;
-      color: $f-main;
-      font-weight: 700;
+      color: $c-expence;
+      transform: rotate(180deg);
     }
+  }
+
+  &__icon {
+    position: relative;
+    padding: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 2px;
 
     &--incomes {
-      padding: 5px;
-      background-color: #B6FFCE;
-      border: 1px solid #97DBAE;
-      border-radius: 4px;
-      color: $f-main;
-      font-weight: 700;
+      background-color: $c-income;
+    }
+
+    &--expences {
+      background-color: $c-expence;
+    }
+  
+    &--dollar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffffff;
+      height: 1rem;
     }
   }
 
-  &__content {
-    padding-bottom: 20px;
-  }
+  &__cross {
+    cursor: pointer;
+    transform: rotate(45deg);
+    color: $f-main;
+    transition: 0.2s;
+    font-weight: 300;
 
-  &__footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 5px;
+    &:hover {
+      font-weight: 500;
+    }
+  }
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &__amount {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: inherit;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    text-align: left;
   }
 }

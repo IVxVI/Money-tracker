@@ -1,4 +1,5 @@
 @import './_mixins.scss';
+@import './variables';
 
 #root {
   padding: 20px;
@@ -10,7 +11,7 @@
   backdrop-filter: blur(10px);
 }
 
-.App {
+.app {
   font-family: 'Roboto Mono', monospace;
   display: flex;
   flex-direction: column;
@@ -32,7 +33,7 @@
       align-items: flex-start;
     }
 
-    &-block {
+    &--block {
       border-radius: 10px;
       background-color: rgb(255 255 255 / 0.3);
       backdrop-filter: blur(10px);
@@ -41,8 +42,13 @@
       max-width: 400px;
       font-size: 14px;
       padding: 0 20px;
+      box-shadow: $shadow-main;
+    }
 
-      box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    &--footer {
+      padding: $pad-m;
+      box-shadow: $shadow-main;
+      border-radius: 5px;
     }
   }
 

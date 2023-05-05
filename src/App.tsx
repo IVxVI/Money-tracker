@@ -11,7 +11,7 @@ import { Info } from './components/Info/Info';
 import { PaginationMain } from './components/Pagination/PaginationMain';
 import { FilterType } from './types/FilterType';
 import { UserAmountModal } from './components/UserAmountModal/UserAmountModal';
-import './styles/App.scss';
+import './styles/app.scss';
 
 function App() {
   const [userAmount, setUserAmount] = useLocalStorage('userAmount', 0);
@@ -24,6 +24,19 @@ function App() {
   const [itemAmount, setItemAmount] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [filterType, setFilterType] = useState(FilterType.All);
+
+  const filteredItems = useMemo(() => {
+    switch (filterType) {
+      case FilterType.Expences:
+        return collection.filter((item: ExpenceItem) => item.category === 'expences');
+
+      case FilterType.Incomes:
+        return collection.filter((item: IncomeItem) => item.category === 'incomes');
+
+      default:
+        return collection;
+    }
+  }, [collection, filterType]);
 
   const handleExpences = (event: React.FormEvent) => {
     event.preventDefault();
@@ -83,19 +96,6 @@ function App() {
     }
   }
 
-  const filteredItems = useMemo(() => {
-    switch (filterType) {
-      case FilterType.Expences:
-        return collection.filter((item: ExpenceItem) => item.category === 'expences');
-
-      case FilterType.Incomes:
-        return collection.filter((item: IncomeItem) => item.category === 'incomes');
-
-      default:
-        return collection;
-    }
-  }, [collection, filterType]);
-
   if(!isSubmited) {
     return (
       <UserAmountModal 
@@ -106,13 +106,13 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className="App__header">
+    <div className="app">
+      <div className="app__header">
         <Header />
       </div>
 
-      <div className="App__main">
-        <div className="App__main-block">
+      <div className="app__main">
+        <div className="app__main--block">
           <Info
             isEditing={isEditing}
             setIsEditing={setIsEditing}
@@ -127,7 +127,7 @@ function App() {
           />
         </div>
 
-        <div className="App__main-block">
+        <div className="app__main--block">
           <Form
             handleExpences={handleExpences}
             handleIncomes={handleIncomes}
@@ -140,7 +140,7 @@ function App() {
       </div>
 
       {collection.length > 0 && (
-        <div className="box">
+        <div className="app__main--footer">
           <PaginationMain
             collection={filteredItems}
             handleExpencesRemoval={handleExpencesRemoval}
