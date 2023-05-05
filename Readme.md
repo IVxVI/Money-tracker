@@ -11,7 +11,7 @@ Local storage
 ## Installation
 To install the app, follow these steps:
 
-Clone this repository: git clone https://github.com/your-username/x-pence.git
+Clone this repository: git clone https://github.com/your-username/money-tracker.git
 Navigate to the project folder: cd x-pence
 Install dependencies: npm install
 Start the app: npm start
