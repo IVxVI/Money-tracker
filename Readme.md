@@ -1,6 +1,6 @@
-# Budget Calculator - X-Pence
+# Budget Calculator - Montra
 Budget Calculator is a web application that allows users to track their income and expenses. It allows users to add new income or expense items, view their current balance, and filter their items by category. The app uses local storage to persist data between sessions.
-[DEMO LINK](https://ivxvi.github.io/X-Pence/)
+[DEMO LINK](https://ivxvi.github.io/money-tracker/)
 
 ## Technologies Used
 React
@@ -11,8 +11,8 @@ Local storage
 ## Installation
 To install the app, follow these steps:
 
-Clone this repository: git clone https://github.com/your-username/x-pence.git
-Navigate to the project folder: cd x-pence
+Clone this repository: git clone https://github.com/your-username/Money-tracker.git
+Navigate to the project folder: cd money-tracker
 Install dependencies: npm install
 Start the app: npm start
 Open the app in your browser at http://localhost:3000
